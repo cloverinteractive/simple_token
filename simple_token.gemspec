@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["enrique@cloverinteractive.com"]
   gem.description   = %q{Easily create unique tokens in active record models}
   gem.summary       = %q{Simple token creation gem}
-  gem.homepage      = ""
+  gem.homepage      = "http://cloverinteractive.github.com/simple_token/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
