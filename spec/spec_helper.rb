@@ -1,4 +1,8 @@
 require 'bundler/setup'
+
+require 'simplecov'
+SimpleCov.start
+
 require 'rspec'
 require 'factory_girl'
 require 'active_record'
