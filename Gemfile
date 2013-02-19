@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'sqlite3'
 gem 'rspec',              :group => [ :test, :development ]
-gem 'nyan-cat-formatter', :group => [ :test, :development ]
 
 group :test do
   gem 'simplecov', :require => false
