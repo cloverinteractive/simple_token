@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Simple token by cloverinteractive</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Simple token</h1>
+        <p>Create unique tokens on active_record models</p>
+
+        <p class="view"><a href="https://github.com/cloverinteractive/simple_token">View the Project on GitHub <small>cloverinteractive/simple_token</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/cloverinteractive/simple_token/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/cloverinteractive/simple_token/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/cloverinteractive/simple_token">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>SimpleToken</h1>
+
+<p><a href="http://travis-ci.org/cloverinteractive/simple_token"><img src="https://secure.travis-ci.org/cloverinteractive/simple_token.png?branch=master" alt="Build Status"></a></p>
+
+<p>Add an unique 64 chars sha2 or secure random token to your active record models.</p>
+
+<p><strong>Note:</strong> You should definately try <code>postgresql</code> native <code>UUID</code> support, if that's not a possibility then <code>simple_token</code> has your back.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'simple_token'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install simple_token
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>SimpleToken only has two dependencies, <code>activerecord</code> and <code>activesupport</code> and it's usage is the same as every <code>acts_as_</code> rails plugin out there.</p>
+
+<p>By default SimpleToken expects you to have a <code>token</code> field in your table, but I'll show you how to customize this in a bit.</p>
+
+<h3>Default settings</h3>
+
+<p>Just a simple call inside your model like this:</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_simple_token</span>
+<span class="k">end</span>
+</pre></div>
+
+<h3>Custom settings</h3>
+
+<p>By default SimpleToken, uses sha2 as it's digest algorithm and expects a token field to exist in your table but we can change this:</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_simple_token</span> <span class="ss">:token_field</span> <span class="o">=&gt;</span> <span class="ss">:secret_hash</span><span class="p">,</span> <span class="ss">:digest_type</span> <span class="o">=&gt;</span> <span class="ss">:secure_random</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>This model will now use <code>secure_random</code> to generate the secret token and it will write it to the <code>secret_hash</code> field on the users table.</p>
+
+<h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/cloverinteractive">cloverinteractive</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
