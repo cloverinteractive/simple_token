@@ -1,9 +1,11 @@
 require 'bundler/setup'
 require 'rspec'
+require 'factory_girl'
 require 'active_record'
 require 'active_support'
 require 'simple_token'
 require 'sqlite3'
+require 'factories'
 
 SPEC_PATH = File.expand_path File.join( File.dirname __FILE__ )
 config    = YAML::load( IO.read( File.join SPEC_PATH, 'config', 'database.yml' ) )['test']['sqlite']
@@ -20,4 +22,5 @@ end
 
 RSpec.configure do |config|
   config.order = 'random'
+  config.include FactoryGirl::Syntax::Methods
 end

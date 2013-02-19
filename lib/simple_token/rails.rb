@@ -10,6 +10,10 @@ module SimpleToken
 
       include InstanceMethods
 
+      define_token_getter
+    end
+
+    def define_token_getter
       define_method( token_field ) do
         return self[ token_field ] unless self[ token_field ].blank?
 
@@ -37,9 +41,7 @@ module SimpleToken
         end
 
         def create_secure_random_token
-          token_lookup do
-            SecureRandom.hex 32
-          end
+          token_lookup { SecureRandom.hex 32 }
         end
 
         def token_lookup( &block )
